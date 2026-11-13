@@ -62,7 +62,7 @@ function QuoteCard({ deal }: { deal: Deal }) {
         <button type="button" className={primary} onClick={() => update((s) => acceptQuote(s, deal.id, "customer"))}>
           Accept the quote
         </button>
-        <div className="grid gap-2 @min-[17rem]:grid-cols-2">
+        <div className="grid gap-2 @min-[18rem]:grid-cols-2">
           <button
             type="button"
             className={`${secondary} px-2 text-sm`}
