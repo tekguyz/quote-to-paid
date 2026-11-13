@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Public_Sans } from "next/font/google";
+import { Space_Mono, Instrument_Sans } from "next/font/google";
 import { siteDescription, siteName, siteTagline, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 // Fonts and colors follow DESIGN.md.
-const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage" });
-const publicSans = Public_Sans({ subsets: ["latin"], variable: "--font-public-sans" });
+const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-space-mono" });
+const instrumentSans = Instrument_Sans({ subsets: ["latin"], variable: "--font-instrument-sans" });
 
 // The link preview: title, description and app/opengraph-image.tsx.
 export const metadata: Metadata = {
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: `${siteName} · ${siteTagline}`, description: siteDescription },
 };
 
-export const viewport: Viewport = { themeColor: "#0e5c57" };
+export const viewport: Viewport = { themeColor: "#ffffff" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${publicSans.variable} h-full antialiased`}>
+    <html lang="en" className={`${spaceMono.variable} ${instrumentSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );

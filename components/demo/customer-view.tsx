@@ -40,7 +40,7 @@ function Thread({ items, startDate }: { items: Bubble[]; startDate: string }) {
               <p className="text-center text-xs font-semibold text-leaf-ink">{b.text}</p>
             ) : (
               <p
-                className={`max-w-[85%] rounded-2xl px-3.5 py-2 text-[15px] leading-snug ${b.side === "in" ? "justify-self-start rounded-bl-sm bg-bubble" : "justify-self-end rounded-br-sm bg-brand text-on-brand"}`}
+                className={`max-w-[85%] px-3.5 py-2 text-[15px] leading-snug ${b.side === "in" ? "justify-self-start bg-bubble" : "justify-self-end bg-brand text-on-brand"}`}
               >
                 {b.text}
               </p>
@@ -54,10 +54,10 @@ function Thread({ items, startDate }: { items: Bubble[]; startDate: string }) {
 
 function QuoteCard({ deal }: { deal: Deal }) {
   return (
-    <div className="rounded-2xl border border-line bg-surface p-4">
+    <div className="border border-line bg-surface p-4">
       <p className="text-xs text-muted">Quote from {business.name}</p>
       <p className="mt-1 font-semibold">{deal.job}</p>
-      <p className="tabular mt-1 font-display text-2xl font-semibold">{formatMoney(deal.amount)}</p>
+      <p className="hl w-fit tabular mt-1 font-display text-2xl font-semibold">{formatMoney(deal.amount)}</p>
       <div className="mt-3 grid gap-2">
         <button type="button" className={primary} onClick={() => update((s) => acceptQuote(s, deal.id, "customer"))}>
           Accept the quote
@@ -83,14 +83,14 @@ function PayCard({ deal, startDate }: { deal: Deal; startDate: string }) {
   const [open, setOpen] = useState(false);
   const inv = deal.invoice!;
   return (
-    <div className="rounded-2xl border border-line bg-surface p-4">
+    <div className="border border-line bg-surface p-4">
       <p className="text-xs text-muted">
         Invoice {inv.number} · due {formatDay(startDate, inv.dueDay)}
       </p>
       <p className="mt-1 font-semibold">{deal.job}</p>
-      <p className="tabular mt-1 font-display text-2xl font-semibold">{formatMoney(deal.amount)}</p>
+      <p className="hl w-fit tabular mt-1 font-display text-2xl font-semibold">{formatMoney(deal.amount)}</p>
       {open ? (
-        <div className="mt-3 grid gap-2 rounded-xl bg-sunk p-3">
+        <div className="mt-3 grid gap-2 bg-sunk p-3">
           <p className="text-sm">Demo: no card needed. Nothing is charged.</p>
           <button type="button" className={primary} onClick={() => update((s) => payInvoice(s, deal.id, "customer"))}>
             Pay {formatMoney(deal.amount)} now
@@ -136,8 +136,8 @@ export function CustomerView({ id }: { id: string }) {
         <p className="max-w-prose text-sm text-muted">In the demo, no text is sent and no card is charged.</p>
       </div>
 
-      <div className="mx-auto w-full max-w-[380px] rounded-[2.25rem] border-8 border-ink bg-paper shadow-[0_24px_60px_-30px_rgba(21,32,30,0.5)]">
-        <div className="flex items-center gap-2.5 rounded-t-[1.75rem] border-b border-line bg-surface px-4 py-3">
+      <div className="mx-auto w-full max-w-[380px] border-8 border-ink bg-paper">
+        <div className="flex items-center gap-2.5 border-b border-line bg-surface px-4 py-3">
           <BusinessMark size={28} />
           <p className="leading-tight">
             <span className="block text-sm font-semibold">{business.name}</span>

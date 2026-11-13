@@ -15,11 +15,11 @@ function DealCard({ deal, state }: { deal: Deal; state: DemoState }) {
     <li>
       <Link
         href={demoRoutes.job(deal.id)}
-        className="block rounded-xl border border-line bg-surface p-4 transition-colors duration-150 hover:border-brand"
+        className="block border border-line bg-surface p-4 transition-colors duration-150 hover:border-brand"
       >
         <div className="flex items-start justify-between gap-3">
           <p className="font-semibold leading-snug">{deal.customer}</p>
-          <p className="tabular font-display font-semibold">{formatMoney(deal.amount)}</p>
+          <p className="hl tabular font-display font-semibold">{formatMoney(deal.amount)}</p>
         </div>
         <p className="mt-0.5 text-sm text-muted">
           {deal.job} · {deal.town}
@@ -73,10 +73,10 @@ export function Board() {
           { label: "Unpaid invoices", ...t.unpaid },
           { label: "Paid, last 14 days", ...t.paid },
         ].map((x) => (
-          <div key={x.label} className="rounded-xl border border-line bg-surface px-4 py-3">
+          <div key={x.label} className="border border-line bg-surface px-4 py-3">
             <dt className="text-sm text-muted">{x.label}</dt>
             <dd className="mt-1 flex items-baseline gap-2">
-              <span className="tabular font-display text-2xl font-semibold">{formatMoney(x.amount)}</span>
+              <span className="hl tabular font-display text-2xl font-semibold">{formatMoney(x.amount)}</span>
               <span className="text-sm text-muted">
                 {x.count} {x.count === 1 ? "job" : "jobs"}
               </span>
@@ -85,7 +85,7 @@ export function Board() {
         ))}
       </dl>
 
-      <section aria-labelledby="needs-you" className="rounded-2xl border border-clay-soft bg-surface p-4 sm:p-5">
+      <section aria-labelledby="needs-you" className="border border-clay-soft bg-surface p-4 sm:p-5">
         <h2 id="needs-you" className="font-display text-xl font-semibold">
           Needs you {waiting.length > 0 ? <span className="text-clay-ink">({waiting.length})</span> : null}
         </h2>
@@ -130,7 +130,7 @@ export function Board() {
       </div>
 
       {lost.length > 0 ? (
-        <details className="rounded-xl border border-line bg-surface px-4 py-3">
+        <details className="border border-line bg-surface px-4 py-3">
           <summary className="min-h-8 cursor-pointer font-semibold">Lost ({lost.length})</summary>
           <ul className="mt-3 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
             {lost.map((d) => (

@@ -47,7 +47,7 @@ function NextStep({ deal, state }: { deal: Deal; state: DemoState }) {
   }
 
   return (
-    <div className="rounded-2xl border border-line bg-surface p-5">
+    <div className="border border-line bg-surface p-5">
       <p className="text-sm text-muted">What happens next</p>
       <p className="mt-1 font-display text-xl font-semibold">{title}</p>
       {body ? <p className="mt-1 text-muted">{body}</p> : null}
@@ -133,14 +133,14 @@ export function DealView({ id }: { id: string }) {
             {deal.job} · {deal.town}
             {deal.invoice ? ` · Invoice ${deal.invoice.number}` : ""}
           </p>
-          <p className="tabular mt-3 font-display text-4xl font-semibold">{formatMoney(deal.amount)}</p>
+          <p className="hl w-fit tabular mt-3 font-display text-4xl font-semibold">{formatMoney(deal.amount)}</p>
         </div>
         <NextStep deal={deal} state={state} />
         <OwnerActions deal={deal} />
         {hasCustomerSide ? (
           <Link
             href={demoRoutes.customer(deal.id)}
-            className="flex items-center justify-between gap-4 rounded-2xl border border-brand bg-brand-soft p-5 transition-colors duration-150 hover:bg-surface"
+            className="flex items-center justify-between gap-4 border border-brand bg-brand-soft p-5 transition-colors duration-150 hover:bg-surface"
           >
             <span>
               <span className="block font-display text-lg font-semibold">See what {deal.firstName} sees</span>

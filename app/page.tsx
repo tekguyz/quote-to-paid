@@ -10,8 +10,8 @@ import { demoRoutes } from "@/lib/demo-routes";
 function HeroPhone() {
   return (
     <div aria-hidden="true" className="relative mx-auto w-full max-w-[360px]">
-      <div className="rounded-[2.25rem] border-8 border-ink bg-paper shadow-[0_30px_70px_-35px_rgba(21,32,30,0.55)]">
-        <div className="flex items-center gap-2.5 rounded-t-[1.75rem] border-b border-line bg-surface px-4 py-3">
+      <div className="border-8 border-ink bg-paper">
+        <div className="flex items-center gap-2.5 border-b border-line bg-surface px-4 py-3">
           <BusinessMark size={28} />
           <p className="leading-tight">
             <span className="block text-sm font-semibold">{business.name}</span>
@@ -20,18 +20,18 @@ function HeroPhone() {
         </div>
         <div className="grid gap-2 px-3 pt-3 pb-5 text-[15px] leading-snug">
           <p className="text-center text-xs text-muted">Tuesday</p>
-          <p className="max-w-[85%] justify-self-start rounded-2xl rounded-bl-sm bg-bubble px-3.5 py-2">
+          <p className="max-w-[85%] justify-self-start bg-bubble px-3.5 py-2">
             Hi Maria, here&rsquo;s your quote for the 3-ton AC system replacement: $9,850. Tap the link to see what&rsquo;s included.
           </p>
           <p className="mt-1 text-center text-xs text-muted">Thursday</p>
-          <p className="max-w-[85%] justify-self-start rounded-2xl rounded-bl-sm bg-bubble px-3.5 py-2">
+          <p className="max-w-[85%] justify-self-start bg-bubble px-3.5 py-2">
             Hi Maria, just checking the quote came through OK. Any questions, reply here. — Renata
           </p>
-          <p className="max-w-[85%] justify-self-end rounded-2xl rounded-br-sm bg-brand px-3.5 py-2 text-on-brand">Yes, let&rsquo;s do it! Is Thursday OK?</p>
-          <p className="mt-1 justify-self-center rounded-full bg-leaf-soft px-3 py-1 text-xs font-semibold text-leaf-ink">Follow-ups stopped · job booked</p>
+          <p className="max-w-[85%] justify-self-end bg-brand px-3.5 py-2 text-on-brand">Yes, let&rsquo;s do it! Is Thursday OK?</p>
+          <p className="mt-1 justify-self-center bg-leaf-soft px-3 py-1 text-xs font-semibold text-leaf-ink">Follow-ups stopped · job booked</p>
         </div>
       </div>
-      <div className="absolute -top-5 right-0 rounded-2xl lg:-right-10 border border-line bg-surface px-4 py-3 shadow-[0_16px_40px_-24px_rgba(21,32,30,0.5)] sm:-left-10">
+      <div className="absolute -top-5 right-0 lg:-right-10 border border-line bg-surface px-4 py-3 sm:-left-10">
         <p className="text-xs text-muted">Follow-up 1 of 3</p>
         <p className="text-sm font-semibold">Sent by itself, on day 2</p>
       </div>
@@ -62,7 +62,7 @@ function BoardPreview() {
     { who: "Ana & Tom G.", what: "Condenser fan motor", chip: "Paid", tone: "bg-leaf-soft text-leaf-ink", amount: "$640" },
   ];
   return (
-    <div aria-hidden="true" className="rounded-2xl border border-line bg-surface p-4 sm:p-6">
+    <div aria-hidden="true" className="border border-line bg-surface p-4 sm:p-6">
       <p className="font-display text-lg font-semibold">This morning</p>
       <ul className="mt-3 divide-y divide-line">
         {rows.map((r) => (
@@ -72,8 +72,8 @@ function BoardPreview() {
               <p className="truncate text-sm text-muted">{r.what}</p>
             </div>
             <div className="flex shrink-0 flex-col items-end gap-1">
-              <span className="tabular font-display font-semibold">{r.amount}</span>
-              <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${r.tone}`}>{r.chip}</span>
+              <span className="hl tabular font-display font-semibold">{r.amount}</span>
+              <span className={`px-2.5 py-0.5 text-xs font-semibold ${r.tone}`}>{r.chip}</span>
             </div>
           </li>
         ))}
@@ -96,7 +96,7 @@ export default function Landing() {
         <section className="mx-auto grid max-w-6xl gap-14 px-4 pt-8 pb-20 sm:px-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-center md:pt-16">
           <div>
             <p className="text-sm font-semibold tracking-wide text-brand uppercase">For roofing and AC companies</p>
-            <h1 className="mt-3 font-display text-5xl leading-[1.02] font-semibold tracking-tight text-balance sm:text-6xl">No quote or invoice goes quiet.</h1>
+            <h1 className="mt-3 font-display text-4xl leading-[1.08] font-semibold tracking-tight text-balance sm:text-5xl">No quote or invoice goes quiet.</h1>
             <p className="mt-5 max-w-xl text-lg text-muted">
               Quote to Paid follows up on every quote and every unpaid invoice by text, politely, until the customer answers or pays. Then it stops.
             </p>
@@ -118,7 +118,7 @@ export default function Landing() {
             <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((s) => (
                 <li key={s.n}>
-                  <span className="tabular flex size-10 items-center justify-center rounded-full bg-brand-soft font-display text-lg font-semibold text-brand">{s.n}</span>
+                  <span className="tabular flex size-10 items-center justify-center bg-brand-soft font-display text-lg font-semibold text-brand">{s.n}</span>
                   <h3 className="mt-4 font-display text-xl font-semibold">{s.title}</h3>
                   <p className="mt-2 text-muted">{s.body}</p>
                 </li>
@@ -155,7 +155,7 @@ export default function Landing() {
                 Then play the customer yourself.
               </p>
             </div>
-            <Link href={demoRoutes.board} className="inline-flex min-h-12 items-center justify-center rounded-full bg-sun px-7 text-lg font-semibold text-ink transition-colors duration-150 hover:bg-paper">
+            <Link href={demoRoutes.board} className="inline-flex min-h-12 items-center justify-center bg-surface px-7 text-lg font-semibold text-ink transition-colors duration-150 hover:bg-sun">
               Try the demo
             </Link>
           </div>
