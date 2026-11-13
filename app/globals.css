@@ -1,30 +1,38 @@
 @import "tailwindcss";
 
-/* Tokens follow DESIGN.md. Light only. */
+/* Tokens follow DESIGN.md. Light only. Sharp corners: every radius is 0. */
 @theme {
-  --color-paper: #f5f3ee;
+  --color-paper: #ffffff;
   --color-surface: #ffffff;
-  --color-sunk: #ebe8e0;
-  --color-line: #d9d4c9;
-  --color-ink: #15201e;
-  --color-muted: #59635f;
-  --color-brand: #0e5c57;
-  --color-brand-deep: #0a4541;
-  --color-brand-soft: #dcece9;
+  --color-sunk: #f2f2f2;
+  --color-line: #d9d9d9;
+  --color-ink: #111111;
+  --color-muted: #595959;
+  --color-brand: #111111;
+  --color-brand-deep: #000000;
+  --color-brand-soft: #f2f2f2;
   --color-on-brand: #ffffff;
-  --color-sun: #f2a541;
-  --color-sun-soft: #fbecd2;
-  --color-sun-ink: #74460a;
+  --color-sun: #e8b923;
+  --color-sun-soft: #f9e9a6;
+  --color-sun-ink: #111111;
   --color-clay-soft: #f6ddd4;
   --color-clay-ink: #8a2f17;
-  --color-sky-soft: #dde7f4;
-  --color-sky-ink: #1f4a86;
+  --color-sky-soft: #e6e6e6;
+  --color-sky-ink: #111111;
   --color-leaf-soft: #d9ecdd;
   --color-leaf-ink: #1d5f33;
-  --color-bubble: #e9e6df;
+  --color-bubble: #f0f0f0;
 
-  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+  --radius-xs: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
+
+  --font-display: var(--font-space-mono), ui-monospace, monospace;
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
 
   --ease-settle: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
@@ -44,10 +52,18 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+/* Mustard highlighter behind a key figure (an amount or a due date). */
+.hl {
+  background: var(--color-sun);
+  color: var(--color-ink);
+  padding: 0 0.3em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 :focus-visible {
-  outline: 2px solid var(--color-brand);
+  outline: 2px solid var(--color-ink);
   outline-offset: 2px;
-  border-radius: 6px;
 }
 
 /* One gesture for a state change: a hairline that draws from the left (DEMO-STANDARD.md, Motion). */
