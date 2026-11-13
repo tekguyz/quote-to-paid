@@ -1,0 +1,197 @@
+{
+  "name": "quote-to-paid",
+  "hideBanner": [
+    "Leave the demo"
+  ],
+  "hideText": [
+    "Built by TEKGUYZ"
+  ],
+  "hideSelector": [
+    "header",
+    "[data-today-bar]"
+  ],
+  "themes": [
+    "light"
+  ],
+  "enter": [
+    {
+      "goto": "https://quotetopaid.vercel.app"
+    },
+    {
+      "click": "Try the demo"
+    },
+    {
+      "waitUrl": "**/demo"
+    }
+  ],
+  "screens": [
+    {
+      "name": "board-day-summary",
+      "device": "desktop",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo"
+        },
+        {
+          "click": "Skip ahead a day"
+        }
+      ]
+    },
+    {
+      "name": "job",
+      "device": "desktop",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo/jobs/luis"
+        }
+      ]
+    },
+    {
+      "name": "customer-phone",
+      "device": "desktop",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo/jobs/maria/customer"
+        }
+      ]
+    },
+    {
+      "name": "board",
+      "device": "phone",
+      "steps": []
+    },
+    {
+      "name": "customer-phone",
+      "device": "phone",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo/jobs/maria/customer"
+        },
+        {
+          "scrollTo": "9:41",
+          "offset": 40
+        }
+      ]
+    },
+    {
+      "name": "quote-follow-up",
+      "device": "feed",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo/jobs/maria/customer"
+        },
+        {
+          "scrollTo": "9:41",
+          "offset": 12
+        }
+      ]
+    },
+    {
+      "name": "invoice-sent",
+      "device": "feed",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo/jobs/luis/customer"
+        },
+        {
+          "scrollTo": "9:41",
+          "offset": 12
+        }
+      ]
+    },
+    {
+      "name": "paid-board",
+      "device": "feed",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo"
+        },
+        {
+          "scrollTo": "Invoices out",
+          "offset": 12
+        }
+      ]
+    },
+    {
+      "name": "quote-follow-up",
+      "device": "stories",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo/jobs/maria/customer"
+        },
+        {
+          "scrollTo": "9:41",
+          "offset": 12
+        }
+      ]
+    },
+    {
+      "name": "invoice-sent",
+      "device": "stories",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo/jobs/luis/customer"
+        },
+        {
+          "scrollTo": "9:41",
+          "offset": 12
+        }
+      ]
+    },
+    {
+      "name": "quote-follow-up",
+      "device": "phone-card",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo/jobs/maria/customer"
+        },
+        {
+          "scrollTo": "9:41",
+          "offset": 12
+        }
+      ]
+    },
+    {
+      "name": "invoice-sent",
+      "device": "phone-card",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo/jobs/luis/customer"
+        },
+        {
+          "scrollTo": "9:41",
+          "offset": 12
+        }
+      ]
+    },
+    {
+      "name": "paid-board",
+      "device": "phone-card",
+      "steps": [
+        {
+          "goto": "https://quotetopaid.vercel.app/demo"
+        },
+        {
+          "scrollTo": "Invoices out",
+          "offset": 12
+        }
+      ]
+    }
+  ],
+  "video": {
+    "device": "desktop",
+    "seconds": 4.5,
+    "steps": [
+      {
+        "goto": "https://quotetopaid.vercel.app/demo"
+      }
+    ]
+  },
+  "reel": {
+    "steps": [
+      {
+        "goto": "https://quotetopaid.vercel.app/demo/jobs/maria/customer"
+      }
+    ]
+  }
+}

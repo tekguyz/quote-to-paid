@@ -1,10 +1,19 @@
 {
   "app": "quote-to-paid",
-  "takenAt": "2026-11-13T08:40:09.300Z",
+  "takenAt": "2026-11-13T22:57:08.915Z",
   "pictures": [
+    "board-day-summary-desktop-light",
+    "job-desktop-light",
     "customer-phone-desktop-light",
+    "board-phone-light",
     "customer-phone-phone-light",
-    "customer-phone-feed-light",
-    "customer-phone-stories-light"
+    "quote-follow-up-feed-light",
+    "invoice-sent-feed-light",
+    "paid-board-feed-light",
+    "quote-follow-up-stories-light",
+    "invoice-sent-stories-light",
+    "quote-follow-up-phone-card-light",
+    "invoice-sent-phone-card-light",
+    "paid-board-phone-card-light"
   ]
 }
