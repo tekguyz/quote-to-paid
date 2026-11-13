@@ -90,14 +90,14 @@ export function DemoShell({ children }: { children: ReactNode }) {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-30 focus:bg-surface focus:px-4 focus:py-2"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-30 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2"
       >
         Skip to content
       </a>
       <DemoBanner />
       <header className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 pt-4 sm:px-6 md:flex-row md:items-center md:justify-between md:pb-3">
-          <Link href={demoRoutes.board} className="min-h-11 self-start">
+          <Link href={demoRoutes.board} className="min-h-11 self-start rounded-md">
             <BusinessName />
           </Link>
           <div className="hidden md:block">
@@ -111,7 +111,7 @@ export function DemoShell({ children }: { children: ReactNode }) {
                 <Link
                   href={m.href}
                   aria-current={active(m.href) ? "page" : undefined}
-                  className={`inline-flex min-h-11 items-center border-b-2 px-3 text-sm font-semibold whitespace-nowrap ${active(m.href) ? "border-ink bg-sun text-ink" : "border-transparent text-muted hover:text-ink"}`}
+                  className={`inline-flex min-h-11 items-center border-b-2 px-3 text-sm font-semibold whitespace-nowrap ${active(m.href) ? "border-brand text-ink" : "border-transparent text-muted hover:text-ink"}`}
                 >
                   {m.label}
                 </Link>

@@ -7,12 +7,12 @@ type Mark = { day: number; label: string; tone: "brand" | "sun" | "clay" };
 function Track({ title, marks, length }: { title: string; marks: Mark[]; length: number }) {
   const tone = { brand: "bg-brand", sun: "bg-sun", clay: "bg-clay-ink" };
   return (
-    <figure className="border border-line bg-surface p-5">
+    <figure className="rounded-2xl border border-line bg-surface p-5">
       <figcaption className="font-display text-xl font-semibold">{title}</figcaption>
       <ol className="mt-4 grid gap-3 lg:hidden">
         {marks.map((m) => (
           <li key={m.label} className="flex items-start gap-3">
-            <span className={`mt-1.5 size-2.5 shrink-0 ${tone[m.tone]}`} aria-hidden="true" />
+            <span className={`mt-1.5 size-2.5 shrink-0 rounded-full ${tone[m.tone]}`} aria-hidden="true" />
             <span>
               <span className="tabular font-semibold">Day {m.day}</span> · {m.label}
             </span>
@@ -27,7 +27,7 @@ function Track({ title, marks, length }: { title: string; marks: Mark[]; length:
           const dotEdge = i === 0 ? "" : i === marks.length - 1 ? "ml-auto" : "mx-auto";
           return (
           <div key={m.label} className={`absolute top-0 w-24 ${edge}`} style={{ left: `${(m.day / length) * 100}%` }}>
-            <span className={`block size-6 border-4 border-surface ${dotEdge} ${tone[m.tone]}`} />
+            <span className={`block size-6 rounded-full border-4 border-surface ${dotEdge} ${tone[m.tone]}`} />
             <span className="tabular mt-1 block text-xs text-muted">Day {m.day}</span>
             <span className="block text-sm leading-tight font-semibold">{m.label}</span>
           </div>
@@ -70,7 +70,7 @@ export function Rules() {
           { day: r3 + call, label: "You give them a call", tone: "clay" },
         ]}
       />
-      <section aria-labelledby="stop" className="border border-line bg-surface p-5">
+      <section aria-labelledby="stop" className="rounded-2xl border border-line bg-surface p-5">
         <h2 id="stop" className="font-display text-xl font-semibold">
           When it stops
         </h2>

@@ -46,10 +46,10 @@ export function Activity() {
                       <EventDot kind={e.kind} />
                     </span>
                     <div className="min-w-0">
-                      <Link href={demoRoutes.job(e.dealId)} className="block min-h-11 py-2.5 underline-offset-4 hover:underline">
+                      <Link href={demoRoutes.job(e.dealId)} className="block min-h-11 rounded-sm py-2.5 underline-offset-4 hover:underline">
                         <span className="font-semibold">{name(e.dealId)}</span> · {e.text}
                       </Link>
-                      {e.message && onlyTexts ? <p className="mt-1 max-w-2xl bg-bubble px-3.5 py-2 text-sm">{e.message}</p> : null}
+                      {e.message && onlyTexts ? <p className="mt-1 max-w-2xl rounded-2xl rounded-tl-sm bg-bubble px-3.5 py-2 text-sm">{e.message}</p> : null}
                     </div>
                   </li>
                 ))}
