@@ -47,7 +47,125 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-brand);
   outline-offset: 2px;
-  border-radius: 6px;
+  border-radius: 2px;
+}
+
+/* The parts the browser draws carry the look too. */
+::selection {
+  background: var(--color-sun-soft);
+  color: var(--color-ink);
+}
+
+html {
+  caret-color: var(--color-brand);
+  scrollbar-color: var(--color-line) transparent;
+  accent-color: var(--color-brand);
+}
+
+@layer components {
+  /* Form controls, ledger shape (DESIGN.md, Shape). No browser-default look. */
+  .field {
+    display: block;
+    width: 100%;
+    min-height: 2.75rem;
+    border: 1px solid var(--color-line);
+    border-radius: 2px;
+    background: var(--color-surface);
+    padding: 0 0.75rem;
+    font: inherit;
+    font-weight: 400;
+    color: var(--color-ink);
+    transition: border-color 150ms;
+  }
+
+  .field::placeholder {
+    color: var(--color-muted);
+  }
+
+  .field:hover {
+    border-color: var(--color-muted);
+  }
+
+  .field:focus-visible {
+    border-color: var(--color-brand);
+    outline-offset: 0;
+  }
+
+  select.field {
+    appearance: none;
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%2359635f' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    cursor: pointer;
+  }
+
+  input.field[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+
+  input.field[type="number"]::-webkit-inner-spin-button,
+  input.field[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  .check {
+    appearance: none;
+    display: grid;
+    place-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    border: 1.5px solid var(--color-muted);
+    border-radius: 2px;
+    background: var(--color-surface);
+    cursor: pointer;
+    transition:
+      background-color 150ms,
+      border-color 150ms;
+  }
+
+  .check::before {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    background: var(--color-on-brand);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.2 4.8 9 10 3' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+    transform: scale(0);
+    transition: transform 120ms var(--ease-settle);
+  }
+
+  .check:checked {
+    border-color: var(--color-brand);
+    background: var(--color-brand);
+  }
+
+  .check:checked::before {
+    transform: scale(1);
+  }
+
+  /* The drawn phone (components/phone.tsx). On a phone it is as wide as the
+     screen allows at 9:19.5; from 768px its height is set by the window so it
+     never runs off the bottom, and the width follows. */
+  .phone {
+    width: min(100%, 360px);
+    aspect-ratio: 9 / 19.5;
+  }
+
+  @media (min-width: 768px) {
+    .phone {
+      --phone-h: min(clamp(560px, calc(100dvh - 12.5rem), 760px), 80vw);
+      height: var(--phone-h);
+      width: calc(var(--phone-h) * 9 / 19.5);
+      aspect-ratio: auto;
+    }
+  }
+
+  .phone-thread {
+    scrollbar-width: thin;
+  }
 }
 
 /* One gesture for a state change: a hairline that draws from the left (DEMO-STANDARD.md, Motion). */
@@ -84,5 +202,11 @@ body {
   .hairline-draw,
   .rise {
     animation: none;
+  }
+
+  .check,
+  .check::before,
+  .field {
+    transition: none;
   }
 }

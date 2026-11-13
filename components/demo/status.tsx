@@ -14,7 +14,7 @@ const look: Record<Status, { label: string; className: string }> = {
 export function StatusChip({ status }: { status: Status }) {
   const { label, className } = look[status];
   return (
-    <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap ${className}`}>
+    <span className={`inline-flex items-center rounded-xs px-2 py-0.5 text-xs font-semibold whitespace-nowrap ${className}`}>
       {label}
     </span>
   );

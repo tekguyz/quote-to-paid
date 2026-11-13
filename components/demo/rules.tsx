@@ -7,7 +7,7 @@ type Mark = { day: number; label: string; tone: "brand" | "sun" | "clay" };
 function Track({ title, marks, length }: { title: string; marks: Mark[]; length: number }) {
   const tone = { brand: "bg-brand", sun: "bg-sun", clay: "bg-clay-ink" };
   return (
-    <figure className="rounded-2xl border border-line bg-surface p-5">
+    <figure className="rounded-xs border border-line bg-surface p-5">
       <figcaption className="font-display text-xl font-semibold">{title}</figcaption>
       <ol className="mt-4 grid gap-3 lg:hidden">
         {marks.map((m) => (
@@ -70,7 +70,7 @@ export function Rules() {
           { day: r3 + call, label: "You give them a call", tone: "clay" },
         ]}
       />
-      <section aria-labelledby="stop" className="rounded-2xl border border-line bg-surface p-5">
+      <section aria-labelledby="stop" className="rounded-xs border border-line bg-surface p-5">
         <h2 id="stop" className="font-display text-xl font-semibold">
           When it stops
         </h2>
