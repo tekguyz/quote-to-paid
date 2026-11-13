@@ -9,7 +9,7 @@ import { addQuote } from "@/lib/demo/engine";
 import { update, useDemo } from "@/lib/demo/use-demo";
 
 const towns = ["Boca Raton", "Coconut Creek", "Deerfield Beach", "Lighthouse Point", "Margate", "Parkland", "Pompano Beach"];
-const field = "mt-1 block min-h-11 w-full rounded-lg border border-line bg-surface px-3 text-base";
+const field = "field mt-1";
 
 export function NewQuote() {
   const state = useDemo();
@@ -41,7 +41,7 @@ export function NewQuote() {
         <h1 className="font-display text-3xl font-semibold tracking-tight">New quote</h1>
         <p className="mt-1 text-muted">Send it, and the follow-ups are planned by themselves. It stays in this browser; nothing is sent.</p>
       </div>
-      <form onSubmit={submit} className="grid gap-4 rounded-2xl border border-line bg-surface p-5" noValidate>
+      <form onSubmit={submit} className="grid gap-4 rounded-xs border border-line bg-surface p-5" noValidate>
         <label className="font-semibold">
           Customer
           <input name="customer" className={field} placeholder="First name and last initial" autoComplete="off" required maxLength={40} />

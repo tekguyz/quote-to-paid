@@ -12,13 +12,13 @@ import { StatusChip } from "./status";
 
 function DealCard({ deal, state }: { deal: Deal; state: DemoState }) {
   return (
-    <li>
+    <li className="-mt-px -ml-px border border-line bg-surface">
       <Link
         href={demoRoutes.job(deal.id)}
-        className="block rounded-xl border border-line bg-surface p-4 transition-colors duration-150 hover:border-brand"
+        className="group block h-full p-4 transition-colors duration-150 hover:bg-brand-soft/40 focus-visible:outline-offset-[-2px]"
       >
         <div className="flex items-start justify-between gap-3">
-          <p className="font-semibold leading-snug">{deal.customer}</p>
+          <p className="font-semibold leading-snug underline-offset-4 group-hover:underline">{deal.customer}</p>
           <p className="tabular font-display font-semibold">{formatMoney(deal.amount)}</p>
         </div>
         <p className="mt-0.5 text-sm text-muted">
@@ -32,6 +32,9 @@ function DealCard({ deal, state }: { deal: Deal; state: DemoState }) {
     </li>
   );
 }
+
+/** A ledger sheet: rows on white, split by 1px hairline rules; cells overlap by 1px so each rule is single. */
+const sheet = "grid pt-px pl-px";
 
 const columns: { stage: Stage; title: string; empty: string }[] = [
   { stage: "quote", title: "Quotes out", empty: "No quotes waiting." },
@@ -67,13 +70,13 @@ export function Board() {
         </Link>
       </div>
 
-      <dl className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+      <dl className="grid grid-cols-1 divide-y divide-line rounded-xs border border-line bg-surface sm:grid-cols-3 sm:divide-x sm:divide-y-0">
         {[
           { label: "Quotes waiting", ...t.quotes },
           { label: "Unpaid invoices", ...t.unpaid },
           { label: "Paid, last 14 days", ...t.paid },
         ].map((x) => (
-          <div key={x.label} className="rounded-xl border border-line bg-surface px-4 py-3">
+          <div key={x.label} className="px-4 py-3">
             <dt className="text-sm text-muted">{x.label}</dt>
             <dd className="mt-1 flex items-baseline gap-2">
               <span className="tabular font-display text-2xl font-semibold">{formatMoney(x.amount)}</span>
@@ -85,16 +88,16 @@ export function Board() {
         ))}
       </dl>
 
-      <section aria-labelledby="needs-you" className="rounded-2xl border border-clay-soft bg-surface p-4 sm:p-5">
-        <h2 id="needs-you" className="font-display text-xl font-semibold">
+      <section aria-labelledby="needs-you">
+        <h2 id="needs-you" className="border-b-2 border-clay-ink pb-2 font-display text-xl font-semibold">
           Needs you {waiting.length > 0 ? <span className="text-clay-ink">({waiting.length})</span> : null}
         </h2>
         {waiting.length === 0 ? (
-          <p className="mt-1 text-muted">Nothing needs you today. The follow-ups have the rest.</p>
+          <p className="mt-2 text-muted">Nothing needs you today. The follow-ups have the rest.</p>
         ) : (
           <>
-            <p className="mt-1 text-sm text-muted">A customer answered, or went quiet after the last follow-up. The texts stopped; this one is yours.</p>
-            <ul className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            <p className="mt-2 text-sm text-muted">A customer answered, or went quiet after the last follow-up. The texts stopped; this one is yours.</p>
+            <ul className={`mt-3 md:grid-cols-2 lg:grid-cols-3 ${sheet}`}>
               {waiting.map((d) => (
                 <DealCard key={d.id} deal={d} state={state} />
               ))}
@@ -118,7 +121,7 @@ export function Board() {
               {deals.length === 0 ? (
                 <p className="mt-3 text-sm text-muted">{c.empty}</p>
               ) : (
-                <ul className="mt-3 grid gap-3">
+                <ul className={`mt-3 ${sheet}`}>
                   {deals.map((d) => (
                     <DealCard key={d.id} deal={d} state={state} />
                   ))}
@@ -130,9 +133,14 @@ export function Board() {
       </div>
 
       {lost.length > 0 ? (
-        <details className="rounded-xl border border-line bg-surface px-4 py-3">
-          <summary className="min-h-8 cursor-pointer font-semibold">Lost ({lost.length})</summary>
-          <ul className="mt-3 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+        <details className="group/lost border-t border-line">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 font-semibold [&::-webkit-details-marker]:hidden">
+            <svg aria-hidden="true" width="10" height="10" viewBox="0 0 10 10" className="text-muted transition-transform duration-150 group-open/lost:rotate-90">
+              <path d="M3 1.5 6.5 5 3 8.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Lost ({lost.length})
+          </summary>
+          <ul className={`mt-2 md:grid-cols-2 xl:grid-cols-4 ${sheet}`}>
             {lost.map((d) => (
               <DealCard key={d.id} deal={d} state={state} />
             ))}

@@ -1,37 +1,31 @@
 import Link from "next/link";
 import { primary } from "@/components/buttons";
-import { BusinessMark, Wordmark } from "@/components/marks";
+import { Phone } from "@/components/phone";
+import { Wordmark } from "@/components/marks";
 import { business } from "@/lib/brand";
 import { demoRoutes } from "@/lib/demo-routes";
 
 // The landing page: the page every link opens (DEMO-STANDARD.md). It sells the
 // idea by itself, on a phone first. No prices, no statistics.
 
+const bubbleIn = "max-w-[85%] justify-self-start rounded-[18px] rounded-bl-[4px] bg-bubble px-3.5 py-2";
+
 function HeroPhone() {
   return (
-    <div aria-hidden="true" className="relative mx-auto w-full max-w-[360px]">
-      <div className="rounded-[2.25rem] border-8 border-ink bg-paper shadow-[0_30px_70px_-35px_rgba(21,32,30,0.55)]">
-        <div className="flex items-center gap-2.5 rounded-t-[1.75rem] border-b border-line bg-surface px-4 py-3">
-          <BusinessMark size={28} />
-          <p className="leading-tight">
-            <span className="block text-sm font-semibold">{business.name}</span>
-            <span className="block text-xs text-muted">Text message</span>
-          </p>
-        </div>
-        <div className="grid gap-2 px-3 pt-3 pb-5 text-[15px] leading-snug">
+    <div aria-hidden="true" inert className="relative mx-auto w-fit">
+      <Phone label="Maria's texts" className="mx-auto max-md:w-[min(100%,300px)]">
+        <div className="grid gap-2 text-[15px] leading-snug">
           <p className="text-center text-xs text-muted">Tuesday</p>
-          <p className="max-w-[85%] justify-self-start rounded-2xl rounded-bl-sm bg-bubble px-3.5 py-2">
+          <p className={`${bubbleIn}`}>
             Hi Maria, here&rsquo;s your quote for the 3-ton AC system replacement: $9,850. Tap the link to see what&rsquo;s included.
           </p>
           <p className="mt-1 text-center text-xs text-muted">Thursday</p>
-          <p className="max-w-[85%] justify-self-start rounded-2xl rounded-bl-sm bg-bubble px-3.5 py-2">
-            Hi Maria, just checking the quote came through OK. Any questions, reply here. — Renata
-          </p>
-          <p className="max-w-[85%] justify-self-end rounded-2xl rounded-br-sm bg-brand px-3.5 py-2 text-on-brand">Yes, let&rsquo;s do it! Is Thursday OK?</p>
-          <p className="mt-1 justify-self-center rounded-full bg-leaf-soft px-3 py-1 text-xs font-semibold text-leaf-ink">Follow-ups stopped · job booked</p>
+          <p className={`${bubbleIn}`}>Hi Maria, just checking the quote came through OK. Any questions, reply here. — Renata</p>
+          <p className="max-w-[85%] justify-self-end rounded-[18px] rounded-br-[4px] bg-brand px-3.5 py-2 text-on-brand">Yes, let&rsquo;s do it! Is Thursday OK?</p>
+          <p className="mt-1 justify-self-center rounded-xs bg-leaf-soft px-2 py-0.5 text-xs font-semibold text-leaf-ink">Follow-ups stopped · job booked</p>
         </div>
-      </div>
-      <div className="absolute -top-5 right-0 rounded-2xl lg:-right-10 border border-line bg-surface px-4 py-3 shadow-[0_16px_40px_-24px_rgba(21,32,30,0.5)] sm:-left-10">
+      </Phone>
+      <div className="absolute top-[22%] -left-4 rounded-xs border border-ink bg-surface px-4 py-3 sm:-left-16">
         <p className="text-xs text-muted">Follow-up 1 of 3</p>
         <p className="text-sm font-semibold">Sent by itself, on day 2</p>
       </div>
@@ -62,7 +56,7 @@ function BoardPreview() {
     { who: "Ana & Tom G.", what: "Condenser fan motor", chip: "Paid", tone: "bg-leaf-soft text-leaf-ink", amount: "$640" },
   ];
   return (
-    <div aria-hidden="true" className="rounded-2xl border border-line bg-surface p-4 sm:p-6">
+    <div aria-hidden="true" className="rounded-xs border border-line bg-surface p-4 sm:p-6">
       <p className="font-display text-lg font-semibold">This morning</p>
       <ul className="mt-3 divide-y divide-line">
         {rows.map((r) => (
@@ -73,7 +67,7 @@ function BoardPreview() {
             </div>
             <div className="flex shrink-0 flex-col items-end gap-1">
               <span className="tabular font-display font-semibold">{r.amount}</span>
-              <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${r.tone}`}>{r.chip}</span>
+              <span className={`rounded-xs px-2 py-0.5 text-xs font-semibold ${r.tone}`}>{r.chip}</span>
             </div>
           </li>
         ))}
@@ -118,7 +112,7 @@ export default function Landing() {
             <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((s) => (
                 <li key={s.n}>
-                  <span className="tabular flex size-10 items-center justify-center rounded-full bg-brand-soft font-display text-lg font-semibold text-brand">{s.n}</span>
+                  <span className="tabular flex size-10 items-center justify-center rounded-xs bg-brand-soft font-display text-lg font-semibold text-brand">{s.n}</span>
                   <h3 className="mt-4 font-display text-xl font-semibold">{s.title}</h3>
                   <p className="mt-2 text-muted">{s.body}</p>
                 </li>
@@ -155,7 +149,7 @@ export default function Landing() {
                 Then play the customer yourself.
               </p>
             </div>
-            <Link href={demoRoutes.board} className="inline-flex min-h-12 items-center justify-center rounded-full bg-sun px-7 text-lg font-semibold text-ink transition-colors duration-150 hover:bg-paper">
+            <Link href={demoRoutes.board} className="inline-flex min-h-12 items-center justify-center rounded-xs bg-sun px-7 text-lg font-semibold text-ink transition-colors duration-150 hover:bg-paper">
               Try the demo
             </Link>
           </div>

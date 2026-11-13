@@ -27,7 +27,7 @@ export function DaySummary({ skip, onClose }: { skip: { day: number; events: Dem
           <button
             type="button"
             onClick={onClose}
-            className="-mt-1 inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-muted hover:bg-surface hover:text-ink"
+            className="-mt-1 inline-flex min-h-11 min-w-11 items-center justify-center rounded-xs text-muted hover:bg-surface hover:text-ink"
             aria-label="Close the day summary"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
@@ -42,7 +42,7 @@ export function DaySummary({ skip, onClose }: { skip: { day: number; events: Dem
                 <span className="mt-2 flex">
                   <EventDot kind={e.kind} />
                 </span>
-                <Link href={demoRoutes.job(e.dealId)} className="block min-h-11 rounded-sm py-2.5 underline-offset-4 hover:underline">
+                <Link href={demoRoutes.job(e.dealId)} className="block min-h-11 rounded-xs py-2.5 underline-offset-4 hover:underline">
                   <span className="font-semibold">{name(e.dealId)}</span> · {e.text}
                 </Link>
               </li>

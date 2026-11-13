@@ -90,14 +90,14 @@ export function DemoShell({ children }: { children: ReactNode }) {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-30 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-30 focus:rounded-xs focus:bg-surface focus:px-4 focus:py-2"
       >
         Skip to content
       </a>
       <DemoBanner />
       <header className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 pt-4 sm:px-6 md:flex-row md:items-center md:justify-between md:pb-3">
-          <Link href={demoRoutes.board} className="min-h-11 self-start rounded-md">
+          <Link href={demoRoutes.board} className="min-h-11 self-start rounded-xs">
             <BusinessName />
           </Link>
           <div className="hidden md:block">

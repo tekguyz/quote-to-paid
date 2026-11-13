@@ -26,7 +26,7 @@ export function Activity() {
         </p>
       </div>
       <label className="inline-flex min-h-11 items-center gap-3 self-start">
-        <input type="checkbox" className="size-5 accent-brand" checked={onlyTexts} onChange={(e) => setOnlyTexts(e.target.checked)} />
+        <input type="checkbox" className="check" data-screen-ok="taps: the whole 44px label is the tap target" checked={onlyTexts} onChange={(e) => setOnlyTexts(e.target.checked)} />
         Only the texts that went out by themselves
       </label>
       <div className="grid gap-8">
@@ -46,10 +46,10 @@ export function Activity() {
                       <EventDot kind={e.kind} />
                     </span>
                     <div className="min-w-0">
-                      <Link href={demoRoutes.job(e.dealId)} className="block min-h-11 rounded-sm py-2.5 underline-offset-4 hover:underline">
+                      <Link href={demoRoutes.job(e.dealId)} className="block min-h-11 rounded-xs py-2.5 underline-offset-4 hover:underline">
                         <span className="font-semibold">{name(e.dealId)}</span> · {e.text}
                       </Link>
-                      {e.message && onlyTexts ? <p className="mt-1 max-w-2xl rounded-2xl rounded-tl-sm bg-bubble px-3.5 py-2 text-sm">{e.message}</p> : null}
+                      {e.message && onlyTexts ? <p className="mt-1 max-w-2xl rounded-xs bg-bubble px-3.5 py-2 text-sm">{e.message}</p> : null}
                     </div>
                   </li>
                 ))}

@@ -37,7 +37,7 @@ export function Timeline({ events, startDate }: { events: DemoEvent[]; startDate
           <p className="mt-0.5 font-semibold">{e.text}</p>
           {e.message ? (
             <figure className="mt-2 max-w-md">
-              <blockquote className="rounded-2xl rounded-tl-sm bg-bubble px-4 py-2.5 text-sm leading-relaxed">{e.message}</blockquote>
+              <blockquote className="rounded-xs bg-bubble px-4 py-2.5 text-sm leading-relaxed">{e.message}</blockquote>
               <figcaption className="mt-1 text-xs text-muted">Text message. In the demo, nothing is sent.</figcaption>
             </figure>
           ) : null}
